@@ -51,25 +51,25 @@ namespace Notepad
            }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e) //Save manu for Save Form
         {
             saveFileDialog1.InitialDirectory = "D:";
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
 
            // String Filename = "";
             saveFileDialog1.Title= "Save";
-             if (File.Exists(saveFileDialog1.FileName))
+             if (File.Exists(saveFileDialog1.FileName)) //File name Exist the only save changes
              {
                  richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
              }
-            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            else if (saveFileDialog1.ShowDialog() == DialogResult.OK) //Save file with new name
             {
                 this.Text = this.Text + saveFileDialog1.FileName;
                 richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
             }
         }
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) //SaveAs menu for save file with new name
         {
             saveFileDialog1.InitialDirectory = "D:";
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
@@ -82,21 +82,24 @@ namespace Notepad
 
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) //Exit manu for Exit current form
         {
             
-            Form f = new Form(){Height=100,Width=500,Text="Notepad"};
+            Form f = new Form(){Height=100,Width=500,Text="Notepad"}; //Custom Form created at runnin time of form
             f.Show();
-            f.MdiParent = this;
+            f.MdiParent = this; 
+            
+            //Add all control in Custom Form
             Label l1 = new Label() { Left = 0, Top = 0,Height=20,Width=200,Text = "Do you Want to Save?" };
             Button save = new Button(){Left = 50, Top=20, Text="Save" };
             Button DonotSave = new Button() { Left = 150, Top = 20, Text = "DonotSave" };
             Button Cancle= new Button(){Left = 300, Top=20, Text="Save" };
+            
             f.Controls.Add(l1);
             f.Controls.Add(save);
             f.Controls.Add(DonotSave);
             f.Controls.Add(Cancle);
-            save.Click += (ob,eve) =>
+            save.Click += (ob,eve) => //Save Event subscribe in Custom Form
             {
                     f.Close();
                     saveFileDialog1.InitialDirectory = "D:";
@@ -115,13 +118,13 @@ namespace Notepad
                      this.Close();
            };
 
-            DonotSave.Click += (ob, eve) =>
+            DonotSave.Click += (ob, eve) => //Don'tSave Event subsribe in Custom Form
             {
                 f.Close();
                 this.Close();
             };
             
-            Cancle.Click += (ob, eve) =>
+            Cancle.Click += (ob, eve) => //Exit Event subscribe in custom Form
             {
                   f.Close();
             };
