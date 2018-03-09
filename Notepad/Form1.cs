@@ -16,18 +16,18 @@ namespace Notepad
         {
             InitializeComponent();
         }
-        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e) //Font dialogbox for set size,style of font
         {
             fontDialog1.ShowDialog();
             richTextBox1.Font=fontDialog1.Font;
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)//new manu for open new Form
         {   
                  this.richTextBox1.Clear();
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openToolStripMenuItem_Click(object sender, EventArgs e) //open manu for open existing Form
         {
             int count=0;
             openFileDialog1.InitialDirectory = "D:";
