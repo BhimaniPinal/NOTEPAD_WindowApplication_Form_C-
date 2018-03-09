@@ -144,41 +144,41 @@ namespace Notepad
             richTextBox1.Copy();
         }
 
-        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)  //past at select pointer
         {
             //String a = Clipboard.GetText();
-            //richTextBox1.Text = richTextBox1.Text.Insert(richTextBox1.SelectionStart, a);//past at select pointer
+            //richTextBox1.Text = richTextBox1.Text.Insert(richTextBox1.SelectionStart, a);
             richTextBox1.Paste();
         }
-        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)// cut selected text of textboxt
         {
-           // Clipboard.SetText(richTextBox1.SelectedText);// cut selected text of textboxt
+           // Clipboard.SetText(richTextBox1.SelectedText);
            // richTextBox1.SelectedText = String.Empty;
             richTextBox1.Cut();
         }
 
-        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)  //copy selected text of textbox
         {
-            Clipboard.SetText(richTextBox1.SelectedText);//copy selected text of textbox
+            Clipboard.SetText(richTextBox1.SelectedText);
         }
 
-        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)  //past at select pointer
         {
 
             String a = Clipboard.GetText();
             richTextBox1.Text = richTextBox1.Text.Insert(richTextBox1.SelectionStart, a);
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) //delete selected text
         {
             richTextBox1.SelectedText = "";
         }
 
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e) //Undo changes of textbox
         {
                 richTextBox1.Undo();
         }
-       private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+       private void redoToolStripMenuItem_Click(object sender, EventArgs e)  //Redo changes of textbox
         {
                richTextBox1.Redo();
         }
